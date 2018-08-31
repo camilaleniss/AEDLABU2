@@ -3,7 +3,7 @@ package model;
 public class Node <T> {
 
 	private T value;
-	private T next;
+	private Node<T> next;
 	
 	public Node(T value) {
 		this.value = value;
@@ -18,11 +18,11 @@ public class Node <T> {
 		this.value = value;
 	}
 
-	public T getNext() {
+	public Node<T> getNext() {
 		return next;
 	}
 
-	public void setNext(T next) {
+	public void setNext(Node<T> next) {
 		this.next = next;
 	}
 	
