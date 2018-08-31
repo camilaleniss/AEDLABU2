@@ -25,7 +25,7 @@ public class Stack <T> implements IStack<T> {
 		if(!isEmpty()) {
 			return top.getValue();
 		} else {
-			throw new StackException("Trying to get top from an empty stack");
+			throw new StackException("Cannot get top from an empty stack");
 		}
 	}
 
