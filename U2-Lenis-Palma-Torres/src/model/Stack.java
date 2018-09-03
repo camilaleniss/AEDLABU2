@@ -3,9 +3,11 @@ package model;
 public class Stack <T> implements IStack<T> {
 	
 	private Node<T> top;
+	private int size;
 	
 	public Stack() {
 		top = null;
+		size = 0;
 	}
 
 	@Override
@@ -18,6 +20,7 @@ public class Stack <T> implements IStack<T> {
 		Node<T> toAdd = new Node<>(item);
 		toAdd.setNext(top);
 		top = toAdd;
+		size++;
 	}
 
 	@Override
@@ -34,11 +37,16 @@ public class Stack <T> implements IStack<T> {
 		if(!isEmpty()) {
 			Node<T> toPop = top;
 			top = toPop.getNext();
+			size--;
 			return toPop.getValue();
 		} else {
 			throw new StackException("Trying to get top from an empty stack");
 		}
 		
+	}
+	
+	public int size() {
+		return size;
 	}
 	
 }

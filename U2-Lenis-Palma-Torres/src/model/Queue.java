@@ -4,10 +4,12 @@ public class Queue <T> implements IQueue<T>{
 	
 	private Node<T> first;
 	private Node<T> last;
+	private int size;
 	
 	public Queue() {
 		first = null;
 		last = null;
+		size = 0;
 	}
 
 	@Override
@@ -25,6 +27,7 @@ public class Queue <T> implements IQueue<T>{
 			last.setNext(toAdd);
 			last = toAdd;
 		}
+		size++;
 	}
 
 	@Override
@@ -41,10 +44,15 @@ public class Queue <T> implements IQueue<T>{
 		if(!isEmpty()) {
 			Node<T> toDequeue = first;
 			first = first.getNext();
+			size--;
 			return toDequeue.getValue();
 		} else {
 			throw new QueueException("Cannot dequeue from an empty queue");
 		}
+	}
+	
+	public int size() {
+		return size;
 	}
 
 }

@@ -9,5 +9,7 @@ public interface IStack <T> {
 	public T top() throws StackException;
 	
 	public T pop() throws StackException;
+	
+	public int size();
 
 }

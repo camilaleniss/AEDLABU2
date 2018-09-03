@@ -10,5 +10,6 @@ public interface IQueue <T>{
 	
 	public T dequeue( ) throws QueueException;
 	
+	public int size();	
 
 }
