@@ -26,6 +26,9 @@ public class Node <T> {
 		this.next = next;
 	}
 	
-	
+	public void insert(Node<T> node) {
+		if(next == null) next = node;
+		else next.insert(node);
+	}
 	
 }
