@@ -7,35 +7,64 @@ public class HashTableOpen<K, T> implements IHashTable<K, T> {
 	private int m;
 	private ArrayList<NodeKey<K, T>> table;
 	private int prime;
+	private NodeKey<K, T> deleted;
 
 	/**
 	 * Creates the hash table
 	 * 
 	 * @param m
-	 *            The number of elements in the table. m must be a prime number.
+	 *            The number of elements in the table.
 	 */
 	public HashTableOpen(int m) {
 		this.m = m;
 		table = new ArrayList<>(m);
 		prime = findPrime();
+		deleted = new NodeKey<K, T>(null, null);
 	}
 
 	@Override
 	public void insert(K key, T value) throws HashTableException {
-		for (int i = 0; i < m; i++) {
+		boolean inserted = false;
+		for (int i = 0; i < m && !inserted; i++) {
 			int hash = hash(key, i);
+			if (table.get(hash) == null || table.get(hash) == deleted) {
+				table.set(hash, new NodeKey<K, T>(key, value));
+				inserted = true;
+			}
+		}
+		if (!inserted) {
+			throw new HashTableException("Hash table overflow");
 		}
 	}
 
 	@Override
 	public T search(K key) {
-		// TODO Auto-generated method stub
-		return null;
+		T value = null;
+		boolean stop = false;
+		for (int i = 0; i < m && !stop; i++) {
+			int hash = hash(key, i);
+			if (table.get(hash) == null) {
+				stop = true;
+			} else if (table.get(hash).getKey() != null && table.get(hash).getKey().equals(key)) {
+				value = table.get(hash).getValue();
+				stop = true;
+			}
+		}
+		return value;
 	}
 
 	@Override
 	public void delete(K key) {
-		// TODO Auto-generated method stub
+		boolean stop = false;
+		for (int i = 0; i < m && !stop; i++) {
+			int hash = hash(key, i);
+			if (table.get(hash) == null) {
+				stop = true;
+			} else if (table.get(hash).getKey() != null && table.get(hash).getKey().equals(key)) {
+				table.set(hash, deleted);
+				stop = true;
+			}
+		}
 
 	}
 

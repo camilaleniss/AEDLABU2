@@ -1,7 +1,7 @@
 package model;
 
-public class NodeKey<K,T> extends Node<T>{
-	
+public class NodeKey<K, T> extends Node<T> {
+
 	private K key;
 
 	public NodeKey(K key, T value) {
