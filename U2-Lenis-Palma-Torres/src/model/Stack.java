@@ -16,8 +16,8 @@ public class Stack <T> implements IStack<T> {
 	}
 
 	@Override
-	public void push(T item) {
-		Node<T> toAdd = new Node<>(item);
+	public void push(T t) {
+		Node<T> toAdd = new Node<>(t);
 		toAdd.setNext(top);
 		top = toAdd;
 		size++;
