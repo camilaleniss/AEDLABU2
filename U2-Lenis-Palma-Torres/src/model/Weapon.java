@@ -4,9 +4,10 @@ public class Weapon{
 	
 	private String name;
 	private String range;
+	private String type;
 	private int supplies;
 
-	public Weapon(String name, String range, int supplies) {
+	public Weapon(String name, String range, String type, int supplies) {
 		this.name=name;
 		this.range=range;
 		this.supplies=supplies;
@@ -24,12 +25,17 @@ public class Weapon{
 		return supplies;
 	}
 	
+	public String getType() {
+		return type;
+	}
+	
 	public void setSupplies(int supplies) {
 		this.supplies=supplies;
 	}
 
-	public void useWeapon() {
+	public boolean useWeapon() {
 		supplies-=1;
+		return (supplies==0);
 	}
 	
 	public boolean isEmpty() {
