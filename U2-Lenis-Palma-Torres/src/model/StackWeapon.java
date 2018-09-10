@@ -3,9 +3,7 @@ package model;
 public class StackWeapon<T> extends Stack<T> implements IStackWeapon<T>{
 	
 	public StackWeapon() {
-		super();
-		Node<Ax> ax = new Node<Ax>(new Ax("Ax", "Basic", 1));
-		super.push(T ax = ax);
+		//IDK
 	}
 
 	@Override
