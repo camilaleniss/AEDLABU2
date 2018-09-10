@@ -10,6 +10,7 @@ public class Weapon{
 	public Weapon(String name, String range, String type, int supplies) {
 		this.name=name;
 		this.range=range;
+		this.type=type;
 		this.supplies=supplies;
 	}
 
