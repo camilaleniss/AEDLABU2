@@ -1,7 +1,11 @@
 package model;
 
 public class Pc implements IQueue<Player> {
-
+	private Queue<Player> listOfPlayers;
+	
+	public Pc() {
+		listOfPlayers= new Queue<Player>();
+	}
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
