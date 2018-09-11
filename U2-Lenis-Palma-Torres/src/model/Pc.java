@@ -1,39 +1,31 @@
 package model;
 
-public class Pc implements IQueue<Player> {
-	private Queue<Player> listOfPlayers;
+public class Pc extends Queue<Player> {
+	private Queue<Player> players;
 	
 	public Pc() {
-		listOfPlayers= new Queue<Player>();
+		players=new Queue<Player>();
 	}
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+	public void queuePlayer(Player newPlayer) {
+		players.enqueue(newPlayer);
 	}
-
-	@Override
-	public void enqueue(Player item) {
-		// TODO Auto-generated method stub
-
+	public void dequeuePlayer() {
+		try {
+			players.dequeue();
+		} catch (QueueException e) {
+			e.printStackTrace();
+		}
 	}
-
-	@Override
-	public Player front() throws QueueException {
-		// TODO Auto-generated method stub
-		return null;
+	public int getQueueSize() {
+		return players.size();
 	}
-
-	@Override
-	public Player dequeue() throws QueueException {
-		// TODO Auto-generated method stub
-		return null;
+	public Player showFirstPlayer() {
+		Player infront=null;
+		try {
+			 infront=players.front();
+		} catch (QueueException e) {
+			e.printStackTrace();
+		}
+		return infront;
 	}
-
-	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
