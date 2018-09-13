@@ -189,9 +189,6 @@ class TestStackWeapon {
 			fail("It must not fail");
 		}
 		
-		
 	}
 	
-	
-
 }
