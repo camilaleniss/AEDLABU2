@@ -7,6 +7,11 @@ public class Pickaxe extends Weapon{
 	}
 	
 	@Override
+	public void addSupplies(int supplies) {
+		
+	}
+	
+	@Override
 	public void useWeapon() {
 		
 	}
