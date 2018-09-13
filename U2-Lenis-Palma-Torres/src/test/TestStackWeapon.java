@@ -104,7 +104,7 @@ class TestStackWeapon {
 		try {
 			stack.pop();
 			Weapon w =stack.top();
-			assertTrue(w.getName().equals("Ax"));
+			assertTrue(w.getName().equals("Pickaxe"));
 			assertTrue(stack.size()==1);
 		} catch (StackException e) {
 			fail("It must not fail");
@@ -131,7 +131,7 @@ class TestStackWeapon {
 		Weapon w;
 		try {
 			w = stack.top();
-			assertTrue(w.getName().equals("Ax"));
+			assertTrue(w.getName().equals("Pickaxe"));
 		} catch (StackException e) {
 			fail("It must not fail");
 		}
@@ -150,7 +150,7 @@ class TestStackWeapon {
 		
 		try {
 			w=stack.top();
-			assertTrue(w.getName().equals("Ax"));
+			assertTrue(w.getName().equals("Pickaxe"));
 			assertTrue(w.getSupplies()==1);
 		} catch (StackException e) {
 			fail("It must not fail");

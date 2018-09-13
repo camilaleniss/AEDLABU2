@@ -7,8 +7,8 @@ public class Pickaxe extends Weapon{
 	}
 	
 	@Override
-	public boolean useWeapon() {
-		return false;
+	public void useWeapon() {
+		
 	}
 
 }
