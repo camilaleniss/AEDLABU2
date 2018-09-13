@@ -30,17 +30,16 @@ public class Weapon{
 		return type;
 	}
 	
-	public void setSupplies(int supplies) {
-		this.supplies=supplies;
+	public void addSupplies(int supplies) {
+		this.supplies += supplies;
 	}
 
-	public boolean useWeapon() {
-		supplies-=1;
-		return (supplies==0);
+	public void useWeapon() {
+		if (supplies > 0 ) supplies-=1;
 	}
 	
 	public boolean isEmpty() {
-		return (supplies>=0);
+		return (supplies==0);
 	}
 	
 	

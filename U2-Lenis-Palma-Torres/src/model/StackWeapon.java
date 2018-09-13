@@ -3,14 +3,15 @@ package model;
 public class StackWeapon extends Stack<Weapon>{
 	
 	public StackWeapon() {
-		Weapon weapon = new Pickaxe("Pickaxe", "Basic", "Default", 1);
-		super.push(weapon);
+		Weapon pickaxe = new Pickaxe();
+		super.push(pickaxe);
 	}
 
 	public void useWeapon() {
 			try {
-				boolean empty =top().useWeapon();
-				if (empty)
+				top().useWeapon();
+				boolean emptyWeapon =top().isEmpty();
+				if (emptyWeapon)
 					pop();
 			} catch (StackException e) {
 				e.printStackTrace();
