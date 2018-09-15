@@ -18,6 +18,9 @@ public class HashTableOpen<K, T> implements IHashTable<K, T> {
 	public HashTableOpen(int m) {
 		this.m = m;
 		table = new ArrayList<>(m);
+		for (int i = 0; i < m; i++) {
+			table.add(null);
+		}
 		prime = findPrime();
 		deleted = new NodeKey<K, T>(null, null);
 	}
@@ -73,17 +76,17 @@ public class HashTableOpen<K, T> implements IHashTable<K, T> {
 	}
 
 	private int hash1(K key) {
-		return key.hashCode() % m;
+		return Math.abs(key.hashCode()) % m;
 	}
 
 	private int hash2(K key) {
-		return prime - key.hashCode() % prime;
+		return prime - Math.abs(key.hashCode()) % prime;
 	}
 
 	private int findPrime() {
 		int prime = 1;
 		boolean found = false;
-		for (int i = m - 1; i > 2 && !found; i++) {
+		for (int i = m - 1; i > 2 && !found; i--) {
 			found = isPrime(i);
 			if (found)
 				prime = i;
