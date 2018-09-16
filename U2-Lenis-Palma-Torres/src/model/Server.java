@@ -32,4 +32,7 @@ public class Server {
 	public HashTableOpen<String,Queue<Player>> getPlatform(){
 		return platform;
 	}
+	public void deletePlatform(String type) {
+		platform.delete(type);
+	}
 }

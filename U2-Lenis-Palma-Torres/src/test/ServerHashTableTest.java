@@ -39,7 +39,6 @@ import model.Queue;
 		void setup6() {
 			setup5();
 			alpha.addNewPlatform("GameBoy");
-			alpha.addNewPlatform("NES");
 			alpha.addNewPlatform("Failure");
 		}
 		void setup7() {
@@ -96,5 +95,20 @@ import model.Queue;
 			assertTrue(e instanceof NullPointerException);
 		}
 	}
+	
+	@Test
+	void testDeletePlatform() {
+		setup1();
+		alpha.deletePlatform("Pc");
+		assertNull(alpha.getPlatform().search("Pc"));
+	}
+	
+	@Test
+	void testDeletePlatform2() {
+		setup1();
+		alpha.deletePlatform("Sega");
+		assertNull(alpha.getPlatform().search("Sega"));
+	}
+	
 
 }
