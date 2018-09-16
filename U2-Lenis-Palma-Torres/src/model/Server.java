@@ -2,8 +2,8 @@ package model;
 
 public class Server {
 	private HashTableOpen<String, Queue<Player>> platform;
-	public Server() {
-		platform= new HashTableOpen<String, Queue<Player>>(10);
+	public Server(int n) {
+		platform= new HashTableOpen<String, Queue<Player>>(n);
 		try {
 			platform.insert("Xbox", new Queue<Player>());
 			platform.insert("PlayStation", new Queue<Player>());
