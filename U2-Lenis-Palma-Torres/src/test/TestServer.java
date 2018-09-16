@@ -51,68 +51,68 @@ class TestServer {
 		alpha.addPlayer(new Player("TripaDeAcero","Atari"));
 	}
 	
-@Test
-void testAddNewPlatform() {
-	setup1();
-	Queue<Player> test=alpha.getPlatform().search("Pc");
-	assertTrue(test.size()==0);
-}
-
-@Test
-void testAddNewPlatform2() {
-	setup5();
-	assertTrue(alpha.getPlatform().search("Sega")!=null);
-}
-
-@Test
-void testAddNewPlatform3() {
-	try {
-	setup6();
-	}catch (Exception e) {
-		assertTrue(e instanceof HashTableException );
-		assertTrue(e.getMessage().equals("Hash table overflow"));
+	@Test
+	void testAddNewPlatform() {
+		setup1();
+		Queue<Player> test=alpha.getPlatform().search("Pc");
+		assertTrue(test.size()==0);
 	}
-}
-
-@Test
-void testAddPlayer() {
-	setup2();
-	assertTrue(alpha.getPlatform().search("Xbox").size()==1);
-	assertTrue(alpha.getPlatform().search("Switch").size()==1);
-}
-
-@Test
-void testAddPlayer2() {
-	setup3();
-	assertTrue(alpha.getPlatform().search("Pc").size()==3);
-}
-
-@Test
-void testAddPlayer3() {
-	try {
-	setup4();
-	}catch (NullPointerException e) {
-		assertTrue(e instanceof NullPointerException);
+	
+	@Test
+	void testAddNewPlatform2() {
+		setup5();
+		assertTrue(alpha.getPlatform().search("Sega")!=null);
 	}
-	try {
-		setup7();
-	}catch (Exception e) {
-		assertTrue(e instanceof NullPointerException);
+	
+	@Test
+	void testAddNewPlatform3() {
+		try {
+		setup6();
+		}catch (Exception e) {
+			assertTrue(e instanceof HashTableException );
+			assertTrue(e.getMessage().equals("Hash table overflow"));
+		}
 	}
-}
-
-@Test
-void testDeletePlatform() {
-	setup1();
-	alpha.deletePlatform("Pc");
-	assertNull(alpha.getPlatform().search("Pc"));
-}
-
-@Test
-void testDeletePlatform2() {
-	setup1();
-	alpha.deletePlatform("Sega");
-	assertNull(alpha.getPlatform().search("Sega"));
-}
+	
+	@Test
+	void testAddPlayer() {
+		setup2();
+		assertTrue(alpha.getPlatform().search("Xbox").size()==1);
+		assertTrue(alpha.getPlatform().search("Switch").size()==1);
+	}
+	
+	@Test
+	void testAddPlayer2() {
+		setup3();
+		assertTrue(alpha.getPlatform().search("Pc").size()==3);
+	}
+	
+	@Test
+	void testAddPlayer3() {
+		try {
+		setup4();
+		}catch (NullPointerException e) {
+			assertTrue(e instanceof NullPointerException);
+		}
+		try {
+			setup7();
+		}catch (Exception e) {
+			assertTrue(e instanceof NullPointerException);
+		}
+	}
+	
+	@Test
+	void testDeletePlatform() {
+		setup1();
+		alpha.deletePlatform("Pc");
+		assertNull(alpha.getPlatform().search("Pc"));
+	}
+	
+	@Test
+	void testDeletePlatform2() {
+		setup1();
+		alpha.deletePlatform("Sega");
+		assertNull(alpha.getPlatform().search("Sega"));
+	}
 
 }
