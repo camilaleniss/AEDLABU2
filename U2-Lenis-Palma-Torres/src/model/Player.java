@@ -11,6 +11,7 @@ public class Player {
 	public Player(String name, String plat) {
 		nickname=name;
 		platform=plat;
+		matchValue=0;
 	}
 
 	public String getNickname() {
@@ -27,6 +28,10 @@ public class Player {
 
 	public void setPlatform(String platform) {
 		this.platform = platform;
+	}
+	
+	public void setMatchValue (int mt) {
+		matchValue=mt;
 	}
 
 	public int getMatchValue() {
