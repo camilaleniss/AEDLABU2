@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import model.HashTableException;
+import model.Matchmaking;
 import model.Player;
 import model.Queue;
 import model.Server;
@@ -13,14 +14,10 @@ class TestServer {
 
 	private Server alpha;
 
-	TestServer(){
-		alpha=new Server(10);
-	}
-	
 	void setup1() {
 		alpha=new Server(10);
+		
 	}
-	
 	void setup2() {
 		setup1();
 		alpha.addPlayer(new Player("Ninja","Xbox"));
@@ -54,8 +51,8 @@ class TestServer {
 	@Test
 	void testAddNewPlatform() {
 		setup1();
-		Queue<Player> test=alpha.getPlatform().search("Pc");
-		assertTrue(test.size()==0);
+		Matchmaking test=alpha.getPlatform().search("Pc");
+		assertTrue(test.getPlayers().size()==0);
 	}
 	
 	@Test
@@ -77,14 +74,14 @@ class TestServer {
 	@Test
 	void testAddPlayer() {
 		setup2();
-		assertTrue(alpha.getPlatform().search("Xbox").size()==1);
-		assertTrue(alpha.getPlatform().search("Switch").size()==1);
+		assertTrue(alpha.getPlatform().search("Xbox").getPlayers().size()==1);
+		assertTrue(alpha.getPlatform().search("Switch").getPlayers().size()==1);
 	}
 	
 	@Test
 	void testAddPlayer2() {
 		setup3();
-		assertTrue(alpha.getPlatform().search("Pc").size()==3);
+		assertTrue(alpha.getPlatform().search("Pc").getPlayers().size()==3);
 	}
 	
 	@Test
@@ -114,5 +111,6 @@ class TestServer {
 		alpha.deletePlatform("Sega");
 		assertNull(alpha.getPlatform().search("Sega"));
 	}
+
 
 }
