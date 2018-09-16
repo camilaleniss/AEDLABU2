@@ -64,5 +64,9 @@ public class Matchmaking {
 		}
 		return index;
 	}
+	
+	public ArrayList<Player> getPlayers(){
+		return players;
+	}
 
 }

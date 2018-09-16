@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import model.HashTableException;
+import model.Matchmaking;
 import model.Player;
 import model.Server;
 import model.Queue;
@@ -49,8 +50,8 @@ import model.Queue;
 	@Test
 	void testAddNewPlatform() {
 		setup1();
-		Queue<Player> test=alpha.getPlatform().search("Pc");
-		assertTrue(test.size()==0);
+		Matchmaking test=alpha.getPlatform().search("Pc");
+		assertTrue(test.getPlayers().size()==0);
 	}
 	
 	@Test
@@ -72,14 +73,14 @@ import model.Queue;
 	@Test
 	void testAddPlayer() {
 		setup2();
-		assertTrue(alpha.getPlatform().search("Xbox").size()==1);
-		assertTrue(alpha.getPlatform().search("Switch").size()==1);
+		assertTrue(alpha.getPlatform().search("Xbox").getPlayers().size()==1);
+		assertTrue(alpha.getPlatform().search("Switch").getPlayers().size()==1);
 	}
 	
 	@Test
 	void testAddPlayer2() {
 		setup3();
-		assertTrue(alpha.getPlatform().search("Pc").size()==3);
+		assertTrue(alpha.getPlatform().search("Pc").getPlayers().size()==3);
 	}
 	
 	@Test
