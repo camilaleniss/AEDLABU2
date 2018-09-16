@@ -1,9 +1,17 @@
 package model;
 
 public class Server {
+	
 	private HashTableOpen<String, Queue<Player>> platform;
+<<<<<<< HEAD
+	
+	public Server() {
+		platform= new HashTableOpen<String, Queue<Player>>(10);
+		
+=======
 	public Server(int n) {
 		platform= new HashTableOpen<String, Queue<Player>>(n);
+>>>>>>> 4f677bada244c3c2a52dcaa98fe0c4e8b47b3f72
 		try {
 			platform.insert("Xbox", new Queue<Player>());
 			platform.insert("PlayStation", new Queue<Player>());
@@ -21,7 +29,6 @@ public class Server {
 		try {
 			this.platform.insert(platform, new Queue<Player>());
 		} catch (HashTableException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -29,6 +36,7 @@ public class Server {
 	public void addPlayer(Player ready) {
 		platform.search(ready.getPlatform()).enqueue(ready);
 	}
+	
 	public HashTableOpen<String,Queue<Player>> getPlatform(){
 		return platform;
 	}
