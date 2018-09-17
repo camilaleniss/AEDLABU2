@@ -1,10 +1,10 @@
 package model;
 
-public class Node <T> {
+public class Node<T> {
 
 	private T value;
 	private Node<T> next;
-	
+
 	public Node(T value) {
 		this.value = value;
 		next = null;
@@ -25,10 +25,12 @@ public class Node <T> {
 	public void setNext(Node<T> next) {
 		this.next = next;
 	}
-	
+
 	public void insert(Node<T> node) {
-		if(next == null) next = node;
-		else next.insert(node);
+		if (next == null)
+			next = node;
+		else
+			next.insert(node);
 	}
-	
+
 }

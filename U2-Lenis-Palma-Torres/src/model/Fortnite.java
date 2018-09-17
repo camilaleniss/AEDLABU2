@@ -14,7 +14,7 @@ public class Fortnite {
 		server = new Server();
 		inventory = new StackWeapon();
 		generateRandomPlayers();
-		
+
 	}
 
 	public String getPlatform() {
@@ -48,13 +48,13 @@ public class Fortnite {
 				break;
 			}
 			p.setPlatform(platform);
-			p.setPlayedGames((int)Math.random()*200);
-			p.setWonGames((int)Math.random()*100);
-			p.setPlatformMode(Math.random()<0.5);
+			p.setPlayedGames((int) Math.random() * 200);
+			p.setWonGames((int) Math.random() * 100);
+			p.setPlatformMode(Math.random() < 0.5);
 			server.addPlayer(p);
 		}
 	}
-	
+
 	public StackWeapon getInventory() {
 		return inventory;
 	}

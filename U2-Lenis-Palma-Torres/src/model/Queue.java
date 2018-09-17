@@ -1,11 +1,11 @@
 package model;
 
-public class Queue <T> implements IQueue<T>{
-	
+public class Queue<T> implements IQueue<T> {
+
 	private Node<T> first;
 	private Node<T> last;
 	private int size;
-	
+
 	public Queue() {
 		first = null;
 		last = null;
@@ -20,7 +20,7 @@ public class Queue <T> implements IQueue<T>{
 	@Override
 	public void enqueue(T item) {
 		Node<T> toAdd = new Node<>(item);
-		if(isEmpty()) {
+		if (isEmpty()) {
 			first = toAdd;
 			last = toAdd;
 		} else {
@@ -32,7 +32,7 @@ public class Queue <T> implements IQueue<T>{
 
 	@Override
 	public T front() throws QueueException {
-		if(!isEmpty()) {
+		if (!isEmpty()) {
 			return first.getValue();
 		} else {
 			throw new QueueException("Cannot get front from an empty queue");
@@ -41,7 +41,7 @@ public class Queue <T> implements IQueue<T>{
 
 	@Override
 	public T dequeue() throws QueueException {
-		if(!isEmpty()) {
+		if (!isEmpty()) {
 			Node<T> toDequeue = first;
 			first = first.getNext();
 			size--;
@@ -50,7 +50,7 @@ public class Queue <T> implements IQueue<T>{
 			throw new QueueException("Cannot dequeue from an empty queue");
 		}
 	}
-	
+
 	public int size() {
 		return size;
 	}

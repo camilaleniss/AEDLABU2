@@ -19,7 +19,7 @@ public class Matchmaking {
 
 	public boolean addPlayer(Player p) {
 		boolean success = false;
-		if(players.size() < n) {
+		if (players.size() < n) {
 			players.add(p);
 			success = true;
 		}
@@ -27,45 +27,45 @@ public class Matchmaking {
 	}
 
 	public void createGames() {
-		while(players.size() > 0) {
+		while (players.size() > 0) {
 			createGame();
 		}
 	}
 
 	public void createGame() {
 		Player[] toAdd = new Player[players.size()];
-		if(players.size() > j) {
+		if (players.size() > j) {
 			toAdd = new Player[j];
-		} 
+		}
 		for (int i = 0; i < toAdd.length; i++) {
 			toAdd[i] = players.get(0);
 			players.remove(0);
 		}
-		
+
 		Game game = new Game(toAdd.length);
-		
+
 		game.setPlayers(toAdd);
-		
+
 		for (int i = 0; i < players.size(); i++) {
 			players.set(i, game.tryToInsert(players.get(i)));
 		}
-		
+
 		matches[getEmptyMatch()] = game;
 	}
-	
-	private int getEmptyMatch(){
+
+	private int getEmptyMatch() {
 		int index = 0;
 		boolean found = false;
 		for (int i = 0; i < matches.length && !found; i++) {
-			if(matches[i] == null) {
+			if (matches[i] == null) {
 				index = i;
 				found = true;
 			}
 		}
 		return index;
 	}
-	
-	public ArrayList<Player> getPlayers(){
+
+	public ArrayList<Player> getPlayers() {
 		return players;
 	}
 

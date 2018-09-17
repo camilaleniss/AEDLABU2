@@ -34,7 +34,6 @@ public class Player {
 		this.nickname = nickname;
 	}
 
-	
 	public boolean isPlatformMode() {
 		return platformMode;
 	}

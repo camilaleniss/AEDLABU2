@@ -11,6 +11,10 @@ public class Game {
 		atyp = -1;
 		mean = 0;
 	}
+	
+	public int getAtyp() {
+		return atyp;
+	}
 
 	public void setPlayers(Player[] players) {
 		this.players = players;
