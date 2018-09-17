@@ -2,6 +2,13 @@ package model;
 
 public class Server {
 	
+	public static final String XBOX = "Xbox";
+	public static final String PLAYSTATION = "PlayStation";
+	public static final String SWITCH = "Switch";
+	public static final String PC = "Pc";
+	public static final String MOBILE = "Mobile";
+	public static final String ALL = "All";
+	
 	private HashTableOpen<String, Matchmaking> platform;
 	
 	public Server() {
