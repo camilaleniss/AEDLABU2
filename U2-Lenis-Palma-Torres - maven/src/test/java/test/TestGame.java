@@ -9,7 +9,7 @@ import model.Player;
 
 class TestGame {
 
-	private Game game;
+private Game game;
 	
 	TestGame(){
 		game= new Game(5);
@@ -54,9 +54,5 @@ class TestGame {
 		arr[0].setMatchValue(25);
 		arr[0].setMatchValue(30);
 	}
-	
-	
-	
-	
 
 }
