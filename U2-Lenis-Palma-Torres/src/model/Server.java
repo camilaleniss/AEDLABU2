@@ -5,7 +5,8 @@ public class Server {
 	private HashTableOpen<String, Matchmaking> platform;
 	
 	public Server() {
-		platform= new HashTableOpen<String, Matchmaking>(100);
+		this(100);
+		
 	}
 
 	public Server(int n) {
