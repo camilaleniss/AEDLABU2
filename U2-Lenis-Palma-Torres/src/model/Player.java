@@ -4,7 +4,7 @@ public class Player {
 	
 	private String nickname;
 	private String platform;
-	
+	private StackWeapon inventory;
 	private int matchValue;
 	
 	
@@ -12,6 +12,7 @@ public class Player {
 		nickname=name;
 		platform=plat;
 		matchValue=0;
+		inventory= new StackWeapon();
 	}
 
 	public String getNickname() {
@@ -36,5 +37,8 @@ public class Player {
 
 	public int getMatchValue() {
 		return matchValue;
+	}
+	public StackWeapon getStack(){
+		return inventory;
 	}
 }
