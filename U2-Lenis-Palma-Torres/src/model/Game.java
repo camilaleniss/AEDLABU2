@@ -15,10 +15,6 @@ public class Game {
 	public int getAtyp() {
 		return atyp;
 	}
-	
-	public double getMean() {
-		return mean;
-	}
 
 	public void setPlayers(Player[] players) {
 		this.players = players;
@@ -28,7 +24,7 @@ public class Game {
 
 	public Player tryToInsert(Player p) {
 		Player toReturn = p;
-		if (desv(p) < desv(players[atyp])) {
+		if(desv(p) <= desv(players[atyp])) {
 			toReturn = players[atyp];
 			players[atyp] = p;
 			calcMean();
@@ -48,34 +44,20 @@ public class Game {
 		}
 		this.mean = mean;
 	}
-
+	
 	private void calcAtyp() {
-		int indexmin = -1;
-		int indexmax= -1;
-		int min, max;
-		
+		int index = -1;
 		if (players[0] != null) {
-			indexmin = 0;
+			index = 0;
 			for (int i = 0; i < players.length; i++) {
-				if (desv(players[i]) < desv(players[indexmin])) {
-					indexmin = i;
+				if(desv(players[i]) >= desv(players[index])) {
+					index = i;
 				}
-			}
-			
-			/*
-			indexmax=0;
-			for(int i = 0; i<players.length; i++) {
-				if (desv(players[i]) > desv(players[indexmax])) {
-					indexmax = i;
-				}
-			}
-			*/
+			} 
 		}
-		
-		
-		atyp = indexmin;
+		atyp = index;
 	}
-
+	
 	private double desv(Player p) {
 		return Math.abs(p.getMatchValue() - mean);
 	}

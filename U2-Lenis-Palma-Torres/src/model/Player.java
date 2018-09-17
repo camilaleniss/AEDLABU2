@@ -92,5 +92,10 @@ public class Player {
 		this.wonGames = wonGames;
 		calcMatchValue();
 	}
+	
+	@Override
+	public String toString() {
+		return nickname+". Platform: "+platform+" MatchValue:"+matchValue;
+	}
 
 }

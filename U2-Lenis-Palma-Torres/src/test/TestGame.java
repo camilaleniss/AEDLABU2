@@ -21,10 +21,10 @@ class TestGame {
 			arr[i] = new Player("", "");
 		}
 		arr[0].setMatchValue(1);
-		arr[0].setMatchValue(2);
-		arr[0].setMatchValue(3);
-		arr[0].setMatchValue(4);
-		arr[0].setMatchValue(10);
+		arr[1].setMatchValue(2);
+		arr[2].setMatchValue(3);
+		arr[3].setMatchValue(4);
+		arr[4].setMatchValue(10);
 		game.setPlayers(arr);
 	}
 	
@@ -44,10 +44,10 @@ class TestGame {
 			arr[i] = new Player("", "");
 		}
 		arr[0].setMatchValue(1);
-		arr[0].setMatchValue(2);
-		arr[0].setMatchValue(3);
-		arr[0].setMatchValue(20);
-		arr[0].setMatchValue(4);
+		arr[1].setMatchValue(2);
+		arr[2].setMatchValue(3);
+		arr[3].setMatchValue(20);
+		arr[4].setMatchValue(4);
 		game.setPlayers(arr);
 	}
 	
@@ -82,14 +82,14 @@ class TestGame {
 		assertTrue(game.getAtyp()==4);
 		
 		setUpStage2();
-		assertTrue(game.getAtyp()==0);
+		assertTrue(game.getAtyp()==4);
 		
 		setUpStage3();
 		System.out.print(game.getAtyp());
 		assertTrue(game.getAtyp()==3);
 		
 		setUpStage4();
-		assertTrue(game.getAtyp()==0);
+		assertTrue(game.getAtyp()==4);
 		
 		setUpStage5();
 		

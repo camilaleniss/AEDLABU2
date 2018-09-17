@@ -24,7 +24,7 @@ public class Game {
 
 	public Player tryToInsert(Player p) {
 		Player toReturn = p;
-		if(desv(p) < desv(players[atyp])) {
+		if(desv(p) <= desv(players[atyp])) {
 			toReturn = players[atyp];
 			players[atyp] = p;
 			calcMean();
@@ -50,7 +50,7 @@ public class Game {
 		if (players[0] != null) {
 			index = 0;
 			for (int i = 0; i < players.length; i++) {
-				if(desv(players[i]) < desv(players[index])) {
+				if(desv(players[i]) >= desv(players[index])) {
 					index = i;
 				}
 			} 
