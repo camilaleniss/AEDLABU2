@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import model.Fortnite;
 import model.Server;
 
 public class Lobby implements Initializable {
@@ -28,6 +29,8 @@ public class Lobby implements Initializable {
 	@FXML
 	void startGame(ActionEvent event) {
 
+		Fortnite fort = new Fortnite(comboPlatform.getSelectionModel().getSelectedItem(), chkPlatform.isSelected());
+		
 	}
 
 	@Override

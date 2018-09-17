@@ -5,7 +5,6 @@ public class Player {
 	private String nickname;
 	private String platform;
 	private boolean platformMode;
-	private StackWeapon inventory;
 	private double matchValue;
 	private double ability;
 	private int ping;
@@ -16,14 +15,14 @@ public class Player {
 		nickname = name;
 		platform = plat;
 		matchValue = 0;
-		inventory = new StackWeapon();
 	}
 
 	public void calcAbility() {
-		ability = (double) wonGames / playedGames * 100;
+		ability = playedGames == 0 ? 0 : (double) wonGames / playedGames * 100;
 	}
 
 	public void calcMatchValue() {
+		calcAbility();
 		matchValue = ability * 10 * 0.5 + (1000 - ping) * 0.5;
 	}
 
@@ -52,14 +51,6 @@ public class Player {
 		this.platform = platform;
 	}
 
-	public StackWeapon getInventory() {
-		return inventory;
-	}
-
-	public void setInventory(StackWeapon inventory) {
-		this.inventory = inventory;
-	}
-
 	public double getMatchValue() {
 		return matchValue;
 	}
@@ -82,6 +73,7 @@ public class Player {
 
 	public void setPing(int ping) {
 		this.ping = ping;
+		calcMatchValue();
 	}
 
 	public int getPlayedGames() {
@@ -90,6 +82,7 @@ public class Player {
 
 	public void setPlayedGames(int playedGames) {
 		this.playedGames = playedGames;
+		calcMatchValue();
 	}
 
 	public int getWonGames() {
@@ -98,6 +91,7 @@ public class Player {
 
 	public void setWonGames(int wonGames) {
 		this.wonGames = wonGames;
+		calcMatchValue();
 	}
 
 }
