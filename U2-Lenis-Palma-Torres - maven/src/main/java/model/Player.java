@@ -6,6 +6,7 @@ public class Player {
 	private String platform;
 	private boolean platformMode;
 	private double matchValue;
+	
 	private double ability;
 	private int ping;
 	private int playedGames;
