@@ -3,6 +3,8 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
@@ -25,12 +27,17 @@ public class Lobby implements Initializable {
 
 	@FXML
 	private JFXComboBox<String> comboPlatform;
+	
+	private String asd;
 
 	@FXML
 	void startGame(ActionEvent event) {
-
 		Fortnite fort = new Fortnite(comboPlatform.getSelectionModel().getSelectedItem(), chkPlatform.isSelected());
 		
+	}
+	
+	void setAsd(String a){
+		asd = a;
 	}
 
 	@Override
@@ -42,7 +49,12 @@ public class Lobby implements Initializable {
 		comboPlatform.setItems(list);
 		
 		comboPlatform.getSelectionModel().select(0);
+		
 
+	}
+
+	public void initData() {
+		chkPlatform.setText(asd);
 	}
 
 }
