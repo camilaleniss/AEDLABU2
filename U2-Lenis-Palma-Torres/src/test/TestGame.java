@@ -68,32 +68,71 @@ class TestGame {
 			arr[i] = new Player("", "");
 		}
 		arr[0].setMatchValue(10);
-		arr[0].setMatchValue(15);
-		arr[0].setMatchValue(20);
-		arr[0].setMatchValue(25);
-		arr[0].setMatchValue(30);
+		arr[1].setMatchValue(15);
+		arr[2].setMatchValue(20);
+		arr[3].setMatchValue(25);
+		arr[4].setMatchValue(30);
 		game.setPlayers(arr);
 	}
 	
 	@Test
 	void testSetPlayers() {
 		setUpStage1();	
-		System.out.print(game.getAtyp());
 		assertTrue(game.getAtyp()==4);
 		
 		setUpStage2();
 		assertTrue(game.getAtyp()==4);
 		
 		setUpStage3();
-		System.out.print(game.getAtyp());
 		assertTrue(game.getAtyp()==3);
 		
 		setUpStage4();
 		assertTrue(game.getAtyp()==4);
 		
 		setUpStage5();
+		assertTrue(game.getAtyp()==4);
 		
-		System.out.print(game.getAtyp());
+	}
+	
+	@Test
+	void testTryToInsert() {
+		Player ptest;
+		
+		Player player = new Player("","");
+		player.setMatchValue(5);
+		
+		setUpStage1();
+		ptest=game.tryToInsert(player);
+		assertTrue(ptest.getMatchValue()==10);
+		
+		setUpStage1();
+		player.setMatchValue(11);
+		ptest=game.tryToInsert(player);
+		assertTrue(ptest.getMatchValue()==11);
+		
+		setUpStage2();
+		ptest=game.tryToInsert(player);
+		assertTrue(ptest.getMatchValue()==11);
+		
+		setUpStage2();
+		player.setMatchValue(9);
+		ptest=game.tryToInsert(player);
+		assertTrue(ptest.getMatchValue()==9);
+		
+		setUpStage5();
+		player.setMatchValue(11);
+		ptest=game.tryToInsert(player);
+		assertTrue(ptest.getMatchValue()==30);
+		
+		setUpStage5();
+		player.setMatchValue(28);
+		ptest=game.tryToInsert(player);
+		assertTrue(ptest.getMatchValue()==30);
+		
+		setUpStage5();
+		player.setMatchValue(40);
+		ptest=game.tryToInsert(player);
+		assertTrue(ptest.getMatchValue()==40);
 	}
 
 
