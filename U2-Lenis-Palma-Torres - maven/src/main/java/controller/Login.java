@@ -21,10 +21,15 @@ public class Login {
 
     @FXML
     void startFortnite(ActionEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/view/lobby.fxml"));
+    	Parent root = loader.load();
+    	Scene scene = new Scene(root);
     	Stage stage = (Stage)btnContinue.getScene().getWindow();
-    	Parent root = FXMLLoader.load(getClass().getResource("/view/lobby.fxml"));
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
+    	stage.setScene(scene);
+    	Lobby lob = loader.getController();
+    	lob.setAsd("willy");
+    	lob.initData();
 		stage.show();
     }
 }
