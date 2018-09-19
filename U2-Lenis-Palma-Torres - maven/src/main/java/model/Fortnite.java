@@ -48,8 +48,13 @@ public class Fortnite {
 				break;
 			}
 			p.setPlatform(platform);
-			p.setPlayedGames((int)Math.random()*200);
-			p.setWonGames((int)Math.random()*100);
+			p.setPlayedGames((int)(Math.random()*200)+20);
+			p.setPing((int)(Math.random()*1000));
+			int wonGames = (int)(Math.random()*100);
+			while(wonGames>p.getPlayedGames()) {
+				wonGames = (int)(Math.random()*100);
+			}
+			p.setWonGames(wonGames);
 			p.setPlatformMode(Math.random()<0.5);
 			server.addPlayer(p);
 		}
@@ -58,5 +63,11 @@ public class Fortnite {
 	public StackWeapon getInventory() {
 		return inventory;
 	}
+
+	public Server getServer() {
+		return server;
+	}
+	
+	
 
 }

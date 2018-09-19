@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,7 +14,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.Fortnite;
 import model.Server;
 
@@ -28,16 +33,20 @@ public class Lobby implements Initializable {
 	@FXML
 	private JFXComboBox<String> comboPlatform;
 	
-	private String asd;
-
 	@FXML
-	void startGame(ActionEvent event) {
+	void startGame(ActionEvent event) throws IOException {
 		Fortnite fort = new Fortnite(comboPlatform.getSelectionModel().getSelectedItem(), chkPlatform.isSelected());
 		
-	}
-	
-	void setAsd(String a){
-		asd = a;
+		FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/view/players.fxml"));
+    	Parent root = loader.load();
+    	Scene scene = new Scene(root);
+    	Stage stage = (Stage)btnPlay.getScene().getWindow();
+    	stage.setScene(scene);
+    	PlayersController contr = loader.getController();
+    	contr.init(fort);
+		stage.show();
+		
 	}
 
 	@Override
@@ -51,10 +60,6 @@ public class Lobby implements Initializable {
 		comboPlatform.getSelectionModel().select(0);
 		
 
-	}
-
-	public void initData() {
-		chkPlatform.setText(asd);
 	}
 
 }
