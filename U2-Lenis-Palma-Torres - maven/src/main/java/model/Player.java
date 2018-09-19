@@ -6,14 +6,14 @@ public class Player {
 	private String platform;
 	private boolean platformMode;
 	private double matchValue;
-	
+
 	private double ability;
 	private int ping;
 	private int playedGames;
 	private int wonGames;
 
 	public Player(String name, String plat) {
-		nickname = name;
+		nickname = name.equals("") ? "FooPlayer" : name;
 		platform = plat;
 		matchValue = 0;
 	}
@@ -35,7 +35,6 @@ public class Player {
 		this.nickname = nickname;
 	}
 
-	
 	public boolean isPlatformMode() {
 		return platformMode;
 	}
@@ -93,6 +92,12 @@ public class Player {
 	public void setWonGames(int wonGames) {
 		this.wonGames = wonGames;
 		calcMatchValue();
+	}
+
+	@Override
+	public String toString() {
+		return nickname + " / ability: " + String.format("%2.2f", ability) + " / ping: " + ping + " / matchvalue: "
+				+ String.format("%4.2f", matchValue) + " / platform: " + platform;
 	}
 
 }

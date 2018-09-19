@@ -28,8 +28,6 @@ public class Login {
     	Stage stage = (Stage)btnContinue.getScene().getWindow();
     	stage.setScene(scene);
     	Lobby lob = loader.getController();
-    	lob.setAsd("willy");
-    	lob.initData();
 		stage.show();
     }
 }
