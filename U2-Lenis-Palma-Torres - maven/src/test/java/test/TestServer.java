@@ -106,8 +106,18 @@ class TestServer {
 	
 	@Test
 	void testDeletePlatform2() {
-		setup1();
+		setup5();
 		alpha.deletePlatform("Sega");
 		assertNull(alpha.getPlatform().search("Sega"));
+	}
+	
+	@Test
+	void testDeletePlatform3() {
+		setup1();
+		try {
+			alpha.deletePlatform("Sega");
+		}catch (Exception e) {
+			assertTrue(e instanceof NullPointerException);
+		}
 	}
 }

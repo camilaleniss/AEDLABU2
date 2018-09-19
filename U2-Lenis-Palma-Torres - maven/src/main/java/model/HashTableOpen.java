@@ -58,17 +58,16 @@ public class HashTableOpen<K, T> implements IHashTable<K, T> {
 
 	@Override
 	public void delete(K key) {
-		boolean stop = false;
-		for (int i = 0; i < m && !stop; i++) {
-			int hash = hash(key, i);
-			if (table.get(hash) == null) {
-				stop = true;
-			} else if (table.get(hash).getKey() != null && table.get(hash).getKey().equals(key)) {
-				table.set(hash, deleted);
-				stop = true;
+			boolean stop = false;
+			for (int i = 0; i < m && !stop; i++) {
+				int hash = hash(key, i);
+				if (table.get(hash) == null) {
+					stop = true;
+				} else if (table.get(hash).getKey() != null && table.get(hash).getKey().equals(key)) {
+					table.set(hash, deleted);
+					stop = true;
+				}
 			}
-		}
-
 	}
 
 	private int hash(K key, int index) {
