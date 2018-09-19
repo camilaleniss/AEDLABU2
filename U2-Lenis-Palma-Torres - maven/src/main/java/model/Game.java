@@ -62,4 +62,8 @@ public class Game {
 		return Math.abs(p.getMatchValue() - mean);
 	}
 
+	public Player[] getPlayers() {
+		return players;
+	}
+
 }

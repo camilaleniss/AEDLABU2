@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
@@ -7,7 +8,11 @@ import com.jfoenix.controls.JFXListView;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import model.Fortnite;
 import model.Server;
 import model.Player;
@@ -44,8 +49,16 @@ public class PlayersController {
 	}
 	
 	@FXML
-    void createGames(ActionEvent event) {
-
+    void createGames(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/view/games.fxml"));
+    	Parent root = loader.load();
+    	Scene scene = new Scene(root);
+    	Stage stage = (Stage)btnCreate.getScene().getWindow();
+    	stage.setScene(scene);
+    	GamesController contr = loader.getController();
+    	contr.init(fort);
+		stage.show();
     }
 
 }

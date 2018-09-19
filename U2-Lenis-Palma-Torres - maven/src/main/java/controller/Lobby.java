@@ -51,6 +51,8 @@ public class Lobby implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		chkPlatform.setSelected(true);
 
 		ObservableList<String> list = FXCollections.observableArrayList(Server.XBOX, Server.PLAYSTATION, Server.SWITCH,
 				Server.PC, Server.MOBILE);

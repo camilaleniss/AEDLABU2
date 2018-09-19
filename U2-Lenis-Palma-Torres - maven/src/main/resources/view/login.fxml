@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,6 +15,11 @@
             <Image url="@../img/bglogin.jpg" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnContinue" buttonType="RAISED" layoutX="362.0" layoutY="404.0" onAction="#startFortnite" prefHeight="29.0" prefWidth="177.0" style="-fx-background-color: white;" text="Press to continue" />
+      <JFXButton fx:id="btnContinue" buttonType="RAISED" layoutX="362.0" layoutY="413.0" onAction="#startFortnite" prefHeight="29.0" prefWidth="178.0" style="-fx-background-color: #424242;" text="Log In" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <JFXTextField layoutX="363.0" layoutY="333.0" prefHeight="25.0" prefWidth="178.0" promptText="EPIC GAMES ID" style="-fx-background-color: white;" />
+      <JFXPasswordField layoutX="362.0" layoutY="365.0" prefHeight="25.0" prefWidth="178.0" promptText="PASSWORD" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>

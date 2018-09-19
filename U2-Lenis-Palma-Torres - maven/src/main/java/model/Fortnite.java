@@ -26,7 +26,7 @@ public class Fortnite {
 	}
 
 	public void generateRandomPlayers() {
-		for (int i = 0; i < 10000; i++) {
+		for (int i = 0; i < 15000; i++) {
 			Player p = new Player("", "");
 			String platform = "";
 			int rand = (int) (Math.random() * 5);

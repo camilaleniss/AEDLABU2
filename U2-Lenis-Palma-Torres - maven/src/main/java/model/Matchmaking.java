@@ -56,6 +56,10 @@ public class Matchmaking {
 		boolean success = false;
 		if(players.size() < n) {
 			players.add(p);
+			int n = players.size();
+			int k = (int) Math.ceil((double) n / 100);
+			matches = new Game[k];
+			j = (int) Math.ceil((double) n / k);
 			success = true;
 		}
 		return success;
@@ -95,6 +99,10 @@ public class Matchmaking {
 		}
 		//Find the empty match to fill it with the new match created
 		matches[getEmptyMatch()] = game;
+	}
+
+	public Game[] getMatches() {
+		return matches;
 	}
 	
 }

@@ -3,17 +3,20 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayersController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #6d6d6d;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="btnCreate" buttonType="RAISED" onAction="#createGames" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: #424242;" text="CREATE GAMES" textAlignment="CENTER" textFill="WHITE" />
+            <JFXButton fx:id="btnCreate" buttonType="RAISED" onAction="#createGames" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: #424242;" text="CREATE GAMES" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
          </children>
       </HBox>
    </bottom>
@@ -29,13 +32,14 @@
       </HBox>
    </center>
    <top>
-      <Label fx:id="lblPlatform" text="Platform: " BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="5.0" top="15.0" />
-         </BorderPane.margin>
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblPlatform" text="Platform: ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </top>
 </BorderPane>
