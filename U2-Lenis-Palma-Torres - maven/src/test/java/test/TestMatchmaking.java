@@ -78,9 +78,10 @@ class TestMatchmaking {
 			p.setMatchValue(10);
 			mm.addPlayer(p);
 		}
+		Player p2= new Player("", "");
 		for (int i =0; i<100; i++) {
-			p.setMatchValue(20);
-			mm.addPlayer(p);
+			p2.setMatchValue(20);
+			mm.addPlayer(p2);
 		}
 	}
 	
@@ -90,6 +91,7 @@ class TestMatchmaking {
 		int i =0;
 		while(i<2) {
 			for (int c=0; c<100;c++) {
+				p= new Player("", "");
 				p.setMatchValue(c+1);
 				mm.addPlayer(p);
 			}
@@ -101,6 +103,7 @@ class TestMatchmaking {
 		mm = new Matchmaking(100);
 		Player p= new Player("", "");
 		for (int i =0; i<330; i++) {
+			p= new Player("", "");
 			p.setMatchValue(30);
 			mm.addPlayer(p);
 		}
@@ -112,10 +115,12 @@ class TestMatchmaking {
 		int i =0;
 		while(i<3) {
 			for (int c=0; c<50;c++) {
+				p= new Player("", "");
 				p.setMatchValue(30);
 				mm.addPlayer(p);
 			}
 			for (int c=0; c<50;c++) {
+				p= new Player("", "");
 				p.setMatchValue(60);
 				mm.addPlayer(p);
 			}
@@ -127,10 +132,12 @@ class TestMatchmaking {
 		mm = new Matchmaking(200);
 		Player p= new Player("", "");
 		for (int i =0; i<30; i++) {
+			p= new Player("", "");
 			p.setMatchValue(20);
 			mm.addPlayer(p);
 		}
 		for (int i =0; i<170; i++) {
+			p= new Player("", "");
 			p.setMatchValue(50);
 			mm.addPlayer(p);
 		}
@@ -144,14 +151,17 @@ class TestMatchmaking {
 			mm.addPlayer(p);
 		}
 		for (int i =0; i<40; i++) {
+			p= new Player("", "");
 			p.setMatchValue(50);
 			mm.addPlayer(p);
 		}
 		for (int i =0; i<50; i++) {
+			p= new Player("", "");
 			p.setMatchValue(45);
 			mm.addPlayer(p);
 		}
 		for (int i =0; i<40; i++) {
+			p= new Player("", "");
 			p.setMatchValue(20);
 			mm.addPlayer(p);
 		}
@@ -201,7 +211,35 @@ class TestMatchmaking {
 		setUpStage8();
 		mm.createGame();
 		assertTrue(mm.getMatches()[0].getPlayers().length==100);
-		System.out.println(mm.getPlayers().size());
 		assertTrue(mm.getMatches()[0].getMean()==10);
+		
+		setUpStage9();
+		mm.createGame();
+		assertTrue(mm.getMatches()[0].getPlayers()[49].getMatchValue()==50);
+		assertTrue(mm.getPlayers().size()==100);
+		
+		setUpStage10();
+		mm.createGame();
+		assertTrue(mm.getPlayers().size()==0);
+		
+		setUpStage11();
+		mm.createGame();
+		assertTrue(mm.getMatches()[0].getPlayers().length==100);
+		assertTrue(mm.getMatches()[0].getMean()==30);
+		
+		setUpStage12();
+		mm.createGame();
+		assertTrue(mm.getMatches()[0].getMean()==50);
+		
+		setUpStage13();
+		mm.createGame();
+		assertTrue(mm.getMatches()[0].getPlayers().length==90);
+		int i = (int) mm.getMatches()[0].getMean();
+		assertTrue(i==10);
+		mm.createGame();
+		i = (int) mm.getMatches()[1].getMean();
+		assertTrue(i==47);
 	}
+	
+	
 }
