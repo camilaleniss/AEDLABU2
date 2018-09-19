@@ -24,14 +24,11 @@ public class Matchmaking {
 		j = (int) Math.ceil((double) n / k);
 	}
 	
-	public void setJ(int j) {
-		this.j=j;
+	public int getJ() {
+		return j;
 	}
 	
-	public void setMatches(Game [] matches) {
-		this.matches=matches;
-	}
-	
+
 	public ArrayList<Player> getPlayers(){
 		return players;
 	}

@@ -15,6 +15,10 @@ public class Game {
 	public int getAtyp() {
 		return atyp;
 	}
+	
+	public double getMean() {
+		return mean;
+	}
 
 	public void setPlayers(Player[] players) {
 		this.players = players;
