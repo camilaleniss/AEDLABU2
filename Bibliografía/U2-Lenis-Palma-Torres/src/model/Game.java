@@ -15,6 +15,10 @@ public class Game {
 	public int getAtyp() {
 		return atyp;
 	}
+	
+	public double getMean() {
+		return mean;
+	}
 
 	public void setPlayers(Player[] players) {
 		this.players = players;
@@ -60,6 +64,10 @@ public class Game {
 	
 	private double desv(Player p) {
 		return Math.abs(p.getMatchValue() - mean);
+	}
+
+	public Player[] getPlayers() {
+		return players;
 	}
 
 }
