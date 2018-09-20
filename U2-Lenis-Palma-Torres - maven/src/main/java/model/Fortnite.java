@@ -82,7 +82,7 @@ public class Fortnite {
 			range = Weapon.LEGENDARY;
 			break;
 		}
-		Image img = new Image(getClass().getResourceAsStream("/img/weapons/" + (int) (Math.random() * 11) + ".png"));
+		Image img = new Image(getClass().getResourceAsStream("/img/weapons/" + (int) (Math.random() * 23) + ".png"));
 		int supplies = (int) (Math.random() * 15) + 1;
 		Weapon weapon = new Weapon("", range, "", supplies);
 		weapon.setImage(img);
