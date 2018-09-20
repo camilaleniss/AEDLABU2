@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -12,7 +13,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import model.Fortnite;
 import model.Game;
 import model.Matchmaking;
@@ -60,7 +65,22 @@ public class GamesController {
 
     @FXML
     void startGame(ActionEvent event) {
-
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/view/stvalentines.fxml"));
+    	Parent root;
+		try {
+			root = loader.load();
+			Scene scene = new Scene(root);
+	    	Stage stage = (Stage)btnStart.getScene().getWindow();
+	    	stage.setScene(scene);
+	    	StValentinesController contr = loader.getController();
+	    	contr.init(fort);
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
     }
     
     public void init(Fortnite fort) {

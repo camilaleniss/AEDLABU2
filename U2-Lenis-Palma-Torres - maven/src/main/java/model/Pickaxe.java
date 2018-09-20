@@ -1,9 +1,12 @@
 package model;
 
+import javafx.scene.image.Image;
+
 public class Pickaxe extends Weapon{
 
 	public Pickaxe() {
-		super("Pickaxe", "Basic", "Default", 1);
+		super("Pickaxe", Weapon.BASIC, "Default", 1);
+		setImage(new Image(getClass().getResourceAsStream("/img/weapons/pickaxe.png")));
 	}
 	
 	@Override

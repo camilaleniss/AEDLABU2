@@ -2,7 +2,7 @@ package model;
 
 public class StackWeapon extends Stack<Weapon>{
 	/**
-	 * This Stack has by default an ax (called pickaxe in Fortnite) that can´t be popped 
+	 * This Stack has by default an ax (called pickaxe in Fortnite) that canï¿½t be popped 
 	 * This Stack can push Weapons that can be used by the method useWeapon
 	 */
 	public StackWeapon() {
@@ -13,7 +13,7 @@ public class StackWeapon extends Stack<Weapon>{
 	/**
 	 * This method use the Weapon that is in the top
 	 * pre: Stack is not empty 
-	 * post: The weapon of the top has -1 supplies and if it hasn´t supplies it pop it. 
+	 * post: The weapon of the top has -1 supplies and if it hasnï¿½t supplies it pops it. 
 	 */
 	public void useWeapon() {
 			try {
