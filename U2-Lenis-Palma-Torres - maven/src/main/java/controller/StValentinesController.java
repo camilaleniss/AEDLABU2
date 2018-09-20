@@ -1,5 +1,9 @@
 package controller;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+
 import com.jfoenix.controls.JFXButton;
 
 import javafx.event.ActionEvent;
@@ -7,10 +11,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
-import model.Fortnite;
-import model.StackException;
-import model.Weapon;
+import model.*;
 
 public class StValentinesController {
 
@@ -39,8 +43,24 @@ public class StValentinesController {
 
 	@FXML
 	void useWeapon(ActionEvent event) {
-		fort.useWeapon();
-		updateWeapon();
+		try {
+			Media sound = null;			
+			if(fort.getInventory().top() instanceof Pickaxe) {
+				sound = new Media(getClass().getResource("/img/weapons/pickaxe.mp3").toString());
+			} else {
+				sound = new Media(getClass().getResource("/img/weapons/bullet.mp3").toString());
+			}
+			MediaPlayer player = new MediaPlayer(sound);
+			player.play();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			fort.useWeapon();
+			updateWeapon();
+		}
+		
 	}
 
 	public void init(Fortnite fort) {
